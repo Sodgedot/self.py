@@ -341,7 +341,7 @@ class Misc:
     @commands.command()
     async def pictext(self, ctx,*,args):
         '''Turn Text to PIC'''
-        font = ImageFont.truetype('arial.ttf', 23)
+        font = ImageFont.truetype('arial.ttf', 21)
         xoff, yoff = (10,5)
         img = Image.new('RGB', (500, 45),'black')
         d = ImageDraw.Draw(img)
