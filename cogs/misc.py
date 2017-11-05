@@ -341,12 +341,11 @@ class Misc:
     @commands.command()
     async def pictext(ctx,*,args):
         '''Turn Text to PIC'''
-        text = message.content[len('a!pic'):].strip()
-        font = ImageFont.truetype('Aristocrat Regular.ttf', 23)
+        font = ImageFont.truetype('arial.ttf', 23)
         xoff, yoff = (10,5)
         img = Image.new('RGB', (500, 45),'black')
         d = ImageDraw.Draw(img)
-        d.text((9, 5), text, fill="white",font = font)
+        d.text((9, 5), args, fill="white",font = font)
         img.save('content.jpeg')
         await ctx.message.delete()
         await ctx.send(file=discord.File(file, 'content.jpeg'))
