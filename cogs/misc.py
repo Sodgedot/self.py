@@ -348,7 +348,7 @@ class Misc:
         d.text((9, 5), args, fill="white",font = font)
         img.save('content.jpeg')
         await ctx.message.delete()
-        await ctx.send(file=discord.File(file, 'content.jpeg'))
+        await ctx.send(file=discord.File('content.jpeg'))
 
 
     @commands.command(description='This command might get you banned')
