@@ -339,7 +339,7 @@ class Misc:
         await ctx.send(file=discord.File(file, 'color.png'), embed=em)
 
     @commands.command()
-    async def pictext(ctx,*,args):
+    async def pictext(self, ctx,*,args):
         '''Turn Text to PIC'''
         font = ImageFont.truetype('arial.ttf', 23)
         xoff, yoff = (10,5)
