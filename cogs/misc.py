@@ -62,20 +62,6 @@ from sympy import solve
 from random import randint, choice
 from enum import Enum
 
-
-async def get_file(bot: Bot, url: str) -> bytes:
-    """
-    Get a file from the web using aiohttp.
-    :param bot: DiscordBot instance to grab session.
-    :param url: URL to get file from.
-    :return: File bytes.
-    """
-    async with bot.session.get(url) as get:
-        assert isinstance(get, aiohttp.ClientResponse)
-        data = await get.read()
-        return data
-
-
 class NumericStringParserForPython3(object):
     '''
     Most of this code comes from the fourFn.py pyparsing example
@@ -752,17 +738,6 @@ class Misc:
             await ctx.message.delete()
         except discord.Forbidden:
             pass
-
-    @commands.command()
-    async def meme(self, ctx, meme: str, line1: str, line2: str, style: str = None):
-        """Generates a meme.
-        Use the meme templates command to see a list of valid memes.
-        """
-        [line1, line2] = convert([line1, line2])
-        style = f"?alt={style}" or ""
-        link = f"http://memegen.link/api/templates/{meme}/{line1}/{line2}.jpg{style}"
-        file = await get_file(self.bot, link)
-        await ctx.send(file=discord.File(fp=io.BytesIO(file), filename="meme.png"))
 
 def setup(bot):
     bot.add_cog(Misc(bot))
