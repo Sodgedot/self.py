@@ -743,7 +743,7 @@ class Misc:
             pass
 
     @commands.command()
-    async def pil(self, ctx, *,args, member : discord.Member=None):
+    async def pil(self, ctx,args, *,member : discord.Member=None):
         '''A SIMPLE DEMO FOR WELCOMING (DEV)'''
         server = ctx.guild
         user = member or ctx.message.author
