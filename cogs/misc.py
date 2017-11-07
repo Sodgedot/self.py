@@ -753,7 +753,6 @@ class Misc:
         with open('img.png', 'wb') as out_file:
             shutil.copyfileobj(response.raw, out_file)
         del response
-        img.save("img.png")
         img = Image.open("img.png")
         img.thumbnail((200, 200))
         new_im = Image.new("RGBA", (400,400))
