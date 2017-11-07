@@ -61,7 +61,7 @@ from urllib.request import urlopen
 from sympy import solve
 from random import randint, choice
 from enum import Enum
-
+stopwatches = {}
 class NumericStringParserForPython3(object):
     '''
     Most of this code comes from the fourFn.py pyparsing example
