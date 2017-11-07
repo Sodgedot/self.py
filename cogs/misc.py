@@ -61,7 +61,7 @@ from urllib.request import urlopen
 from sympy import solve
 from random import randint, choice
 from enum import Enum
-stopwatches = {}
+
 class NumericStringParserForPython3(object):
     '''
     Most of this code comes from the fourFn.py pyparsing example
@@ -319,18 +319,7 @@ class Misc:
             await ctx.send(
                 "*flips a coin and... " + choice(["HEADS!*", "TAILS!*"])
 )
-    @commands.command(aliases=["sw"])
-    async def stopwatch(self, ctx):
-        """Starts/stops stopwatch"""
-        author = ctx.author
-        if not author.id in self.stopwatches:
-            self.stopwatches[author.id] = int(time.perf_counter())
-            await ctx.send(author.mention + " Stopwatch started!")
-        else:
-            tmp = abs(self.stopwatches[author.id] - int(time.perf_counter()))
-            tmp = str(datetime.timedelta(seconds=tmp))
-            await ctx.send(author.mention + " Stopwatch stopped! Time: **" + tmp + "**")
-            self.stopwatches.pop(author.id, None)
+
 
     @commands.command()
     async def react(self, ctx, index: int, *, reactions):
