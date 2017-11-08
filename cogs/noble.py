@@ -96,7 +96,7 @@ class Noble:
     @commands.command()
     async def seen(self, ctx, *,username: discord.Member):
         '''seen <@username>'''
-        server = ctx.message.server
+        server = ctx.guild
         author = username
         timestamp_now = ctx.message.timestamp
         if server.id in self.seen:
