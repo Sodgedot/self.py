@@ -94,11 +94,11 @@ class Noble:
         await ctx.send(file=discord.File('content.jpeg'))
 
     @commands.command()
-    async def _seen(self, ctx, *,username: discord.Member):
+    async def seen(self, ctx, *,username: discord.Member):
         '''seen <@username>'''
-        server = context.message.server
+        server = ctx.message.server
         author = username
-        timestamp_now = context.message.timestamp
+        timestamp_now = ctx.message.timestamp
         if server.id in self.seen:
             if author.id in self.seen[server.id]:
                 data = self.seen[server.id][author.id]
