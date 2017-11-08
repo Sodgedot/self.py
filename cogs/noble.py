@@ -93,61 +93,7 @@ class Noble:
         await ctx.message.delete()
         await ctx.send(file=discord.File('content.jpeg'))
 
-    @commands.command()
-    async def seen(self, ctx, *,username: discord.Member):
-        '''seen <@username>'''
-        server = ctx.guild
-        author = username
-        timestamp_now = ctx.message.timestamp
-        if server.id in self.seen:
-            if author.id in self.seen[server.id]:
-                data = self.seen[server.id][author.id]
-                timestamp_then = datetime.fromtimestamp(data['TIMESTAMP'])
-                timestamp = timestamp_now - timestamp_then
-                days = timestamp.days
-                seconds = timestamp.seconds
-                hours = seconds // 3600
-                seconds = seconds - (hours * 3600)
-                minutes = seconds // 60
-                if sum([days, hours, minutes]) < 1:
-                    ts = 'just now'
-                else:
-                    ts = ''
-                    if days == 1:
-                        ts += '{} day, '.format(days)
-                    elif days > 1:
-                        ts += '{} days, '.format(days)
-                    if hours == 1:
-                        ts += '{} hour, '.format(hours)
-                    elif hours > 1:
-                        ts += '{} hours, '.format(hours)
-                    if minutes == 1:
-                        ts += '{} minute ago'.format(minutes)
-                    elif minutes > 1:
-                        ts += '{} minutes ago'.format(minutes)
-                em = discord.Embed(color=discord.Color.green())
-                avatar = author.avatar_url if author.avatar else author.default_avatar_url
-                em.set_author(name='{} was seen {}'.format(author.display_name, ts), icon_url=avatar)
-                await ctx.send(embed=em)
-            else:
-                message = 'I haven\'t seen {} yet.'.format(author.display_name)
-                await ctx.send(content = '{}'.format(message))
-        else:
-            message = 'I haven\'t seen {} yet.'.format(author.display_name)
-            await ctx.send(content = '{}'.format(message))
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
