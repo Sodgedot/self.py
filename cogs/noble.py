@@ -1,7 +1,7 @@
 '''
 NO COPYRIGHTS XD
-But the gif and pic to text for bot is witten by Noble#5242 (using PIL) feel free to edit and make it better.
-A COG BY ME ~ NOBLE
+But the gif and text to gif for bot is witten by Noble#5242 (using PIL) feel free to edit and make it better.
+A COG BY  ~ NOBLE
 '''
 from __future__ import division
 import discord
@@ -99,14 +99,14 @@ class Noble:
     @commands.command()
     async def encode(self,ctx,*,args):
         '''Encode ascii Text to base64'''
-        decoded_stuff = base64.b64encode(b'{}'.format(args))
+        decoded_stuff = base64.b64encode(b'%s'%(args))
         await ctx.message.delete()
         await ctx.send(content = "{}".format(decoded_stuff))
 
     @commands.command()
     async def encode(self,ctx,*,args):
         '''Decode to ascii'''
-        encoded_stuff = base64.b64decode(b'{}'.format(args))
+        encoded_stuff = base64.b64decode(b'%s'%(args))
         await ctx.message.delete()
         await ctx.send(content = "{}".format(encoded_stuff))
 
