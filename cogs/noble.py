@@ -106,7 +106,7 @@ class Noble:
         await ctx.send(content = "{}".format(encoded_stuff))
 
     @commands.command()
-    async def encode(self,ctx,*,args):
+    async def decode(self,ctx,*,args):
         '''Decode to ascii'''
         encoded_stuff = base64.b64decode('{}'.format(args))
         decoded_stuff = str(encoded_stuff)
