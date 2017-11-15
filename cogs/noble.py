@@ -151,8 +151,10 @@ class Noble:
         em.set_image(url = result['url'])
         try:
             await ctx.send(embed = em)
+            await ctx.message.delete()
         except:
             await ctx.send(result['url'])
+            await ctx.message.delete()
 
 
 
