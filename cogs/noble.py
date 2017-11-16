@@ -138,7 +138,7 @@ class Noble:
     @commands.command()
     async def memeit(self, ctx, args1,args2):
         'MEME IT! memeit [text1] [text2]'
-        api = pyimgflip.Imgflip(username='xjcn6iokow', password='xjcnb6i0k0w')
+        api = pyimgflip.Imgflip(username='dodgeissodge', password='iamdodge')
         memes = api.get_memes()
         meme = random.choice(memes)
         #print("Generating a meme from template: " + meme.name)
